@@ -43,6 +43,12 @@ minikube addons list
 
 minikube addons enable ingress
 
+eval $(minikube docker-env)
+
+# docker container ps \
+#     --format "table {{.Names}}\t{{.Status}}" \
+#     -f name=k8s_nginx-ingress-controller
+
 kubectl get pods -n kube-system \
     | grep ingress
 
