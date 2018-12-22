@@ -73,6 +73,15 @@ open "http://$(minikube ip)/prometheus/config"
 
 cat volume/prometheus-host-path.yml
 
+
+minikube ssh
+    
+sudo mkdir /files
+    
+sudo mv /prometheus-conf.yml  /files/
+    
+exit 
+
 minikube ssh sudo chmod +rw \
     /files/prometheus-conf.yml
 
